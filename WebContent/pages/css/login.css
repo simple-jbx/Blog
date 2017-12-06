@@ -1,0 +1,66 @@
+body {
+	text-align: center;
+	background: #cbf5fb;
+	overflow: hidden;
+}
+
+.content {
+	width: 368px;
+	height: 460px;
+	margin: 47px 840px;
+	background: rgba(70, 240, 250, 0.5);
+	border-radius: 6px;
+}
+
+.content .inputBox {
+	height: 30px;
+	opacity: 0.6;
+}
+
+.content .inputBox input {
+	width: 280px;
+	height: 50px;
+	text-align: center;
+	padding-left: 16px;
+	line-height: 38px;
+	font-size: 22px;
+	background: #e2e9f9;
+	color: #464242;
+	border: none;
+	border-radius: 2px;
+}
+
+.content .login_btn {
+	width: 88%;
+	height: 46px;
+	font-size: 20px;
+	text-align: center;
+	color: #fff;
+	font-family: 微软雅黑;
+	background: #458fce;
+	border-radius: 3px;
+	border: none;
+	cursor: pointer;
+}
+
+.content .login_btn:hover {
+	background: #2ae0c8;
+}
+
+/*展示信息*/
+.show {
+	width: 600px;
+	height: 400px;
+	position: absolute;
+	left: 150px;
+	top: 120px;
+}
+
+.content .logo {
+	text-align: center;
+	line-height: 30px;
+	color: #fff;
+	font-size: 30px;
+	position: relative;
+	top: 26px;
+}
