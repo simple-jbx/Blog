@@ -118,7 +118,7 @@ public class Article {
 	}
 	
 	public Date getUpdateTime() {
-		return createTime;
+		return updateTime;
 	}
 	
 	public void setUpdateTime(Date updateTime) {

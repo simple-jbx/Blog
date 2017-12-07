@@ -14,7 +14,7 @@ public class ArticleService {
 	 * @param end
 	 */
 	public List<Map<String, Object> > getArticlesByCategoryId(Integer catagoryId, Integer start, Integer end) {
-		String sql = "select id, header, name, author," 
+		String sql = "select id, header, name, author, create_time," 
 				+ "description from t_article where 1 = 1" 
 				+ " and is_delete = 0 and is_published = 1" 
 				+ " and category_id = ?" 

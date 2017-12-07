@@ -1,9 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ page language="java" import="java.util.*"%>
+<%@ page language="java"
+	import="java.util.*, java.text.SimpleDateFormat"%>
 <%@ page language="java" import="service.ArticleService"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <%@include file="pages/jsp/common/header.jsp"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 
 <% ArticleService articleService = new ArticleService(); %>
 <html>
@@ -69,23 +71,35 @@
 						<p></p>
 					</div>
 				</div>
+				<%
+   				 //查询出编程代码类的相关文章
+    			List<Map<String,Object>>  articles2 = articleService.getArticlesByCategoryId(2, 0, 6);
+    			pageContext.setAttribute("articles2", articles2);    			
+				%>
 				<div class="post">
 					<h2 class="title">
 						<a href="#">Web前端</a>
 					</h2>
 					<p class="byline">
-						<small>Posted on January 1st, 2008 by <a href="#">Free
-								CSS Templates</a></small>
+						<!--  <small>Posted on January 1st, 2008 by <a href="#">Free
+								CSS Templates</a></small>-->
 					</p>
-					<div class="entry">
-						<p></p>
+
+					<div class="category">
+						<ul class='items'>
+							<c:forEach items="${articles2}" var="item">
+								<li class='item' onclick="detail('${item.id}');">
+									<div class='item-name' title="${item.name}">${item.name}</div>
+									<div class='item-description'>${item.description}</div>
+									<div class='item-author'>${item.author}创建于
+										<fmt:formatDate value="${item.create_time}" type="both" />
+									</div>
+								</li>
+							</c:forEach>
+						</ul>
 					</div>
 				</div>
-				<%
-   				 //查询出编程代码类的相关文章
-    			List<Map<String,Object>>  articles2 = articleService.getArticlesByCategoryId(2, 0, 6);
-    			pageContext.setAttribute("articles2", articles2);
-				%>
+
 
 				<div class="post">
 					<h2 class="title">
@@ -318,6 +332,15 @@
 	            index = len - 1;
 	        }
 	    });
+	}
+	
+	//打开详情页
+	function detail(id){
+		var a = document.createElement("a");
+		a.href = "detail.jsp?id=" + id; 
+		console.log(a);
+		//a.target = '_new'; //指定在新窗口打开
+		a.click();//触发打开事件
 	}
 </script>
 	<%@include file="pages/jsp/common/footer.jsp"%>

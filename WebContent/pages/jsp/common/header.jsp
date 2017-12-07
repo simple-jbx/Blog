@@ -28,10 +28,10 @@
 				<span><a href="register.jsp">注册</a></span>
 			</c:when>
 			<c:otherwise>
-				<span><a href="javascript:void(0)">欢迎您，${sessionScope.username}</a></span>
+				<span><a href="${basePath}/pages/jsp/backstage/manage.jsp">${sessionScope.username}</a></span>
 				<span>&nbsp;|&nbsp;</span>
 				<span><a
-					href="${basePath}/pages/jsp/controller/logoutController.jsp">登出</a></span>
+					href="${basePath}/pages/jsp/controller/logoutController.jsp">退出</a></span>
 			</c:otherwise>
 		</c:choose>
 	</div>

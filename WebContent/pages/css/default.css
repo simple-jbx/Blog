@@ -134,7 +134,7 @@ p {
 }
 
 .post {
-	height: 200px;
+	min-height: 300px;
 	margin-bottom: 20px;
 	padding-bottom: 15px;
 	line-height: 200%;
