@@ -9,13 +9,13 @@ public class User {
 	@Column(type = "VARCHAR(100)", field = "id", primaryKey = true, defaultNull = false)
 	private String id; //主键，采用UUID
 
-	@Column(type = "VARCHAR(20)", field = "username")
-	private String username; //密码
+	@Column(type = "VARCHAR(50)", field = "username")
+	private String username; //用户名
 	
-	@Column(type = "VARCHAR(20)", field = "password")
+	@Column(type = "VARCHAR(50)", field = "password")
 	private String password; //密码
 	
-	@Column(type = "VARCHAR(60)", field = "headerPic")
+	@Column(type = "VARCHAR(100)", field = "headerPic")
 	private String headerPic; //头像
 	
 	@Column(type = "VARCHAR(60)", field = "email")

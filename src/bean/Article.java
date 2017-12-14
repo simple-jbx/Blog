@@ -15,16 +15,16 @@ public class Article {
 	@Column(field = "header", type = "varchar(100)")
 	private String header;//标题
 	
-	@Column(field = "name", type = "varchar(60)")
+	@Column(field = "name", type = "varchar(150)")
 	private String name;//文章名称
 	
-	@Column(field = "content", type = "text")
+	@Column(field = "content", type = "longtext")
 	private String content;//文章内容
 	
-	@Column(field = "author", type = "varchar(30)")
+	@Column(field = "author", type = "varchar(50)")
 	private String author;//作者
 	
-	@Column(field = "description", type = "varchar(100)")
+	@Column(field = "description", type = "mediumtext")
 	private String description;//概要
 	
 	@Column(field = "is_published", type = "int(1)")

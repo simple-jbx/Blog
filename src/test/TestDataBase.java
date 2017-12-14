@@ -17,11 +17,7 @@ import util.DataBaseUtils;
 
 public class TestDataBase {
 	public static void main(String[] args) throws SQLException {
-		getCategoryList();
-
+		DataBaseUtils.getConnection();
 	}
 	
-	public static void getCategoryList(){
-
-	}
 }

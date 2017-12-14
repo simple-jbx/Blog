@@ -14,9 +14,7 @@ import util.TableUtils;
 
 public class TestMain {
 	 public static void main(String[] args) {
-		 ArticleService artice = new ArticleService();
-		 List<Map<String,Object>>  articles2 = artice.getArticlesByCategoryId(2, 0, 6);
-			Map<String, Object> map = articles2.get(0);
-			System.out.println(map.toString());
-		}
+		 String id = UUID.randomUUID().toString();
+		 System.out.println(id);
+	 }
 }

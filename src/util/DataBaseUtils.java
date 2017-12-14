@@ -24,6 +24,7 @@ public class DataBaseUtils {
 	private static String password; //密码
 	private static String dataBaseName; //数据库名
 	static{
+		//sae
 		config("jdbc.properties");
 	}
 	
@@ -40,6 +41,10 @@ public class DataBaseUtils {
 			username = p.getProperty("db.username");
 			password = p.getProperty("db.password");
 			dataBaseName = p.getProperty("db.dataBaseName");
+			//System.out.println(username);
+			//System.out.println(password);
+			//System.out.println(dataBaseName);
+
 		}catch (IOException e){
 			e.printStackTrace();
 		}
@@ -54,7 +59,10 @@ public class DataBaseUtils {
 		Connection connection = null;
 		try{
 			Class.forName("com.mysql.jdbc.Driver");
-			connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/"+dataBaseName+"?useUnicode=true&characterEncoding=utf8",username,password);
+			//本地
+			connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/"+"blog"+"?useUnicode=true&characterEncoding=utf8","root","41512241");
+			//sae
+			//connection = DriverManager.getConnection("jdbc:mysql://vctumvepnwfu.mysql.sae.sina.com.cn:10350/"+dataBaseName+"?useUnicode=true&characterEncoding=utf8",username,password);
 		}catch (ClassNotFoundException e){
 			e.printStackTrace();
 		}catch (SQLException e){
@@ -152,7 +160,7 @@ public class DataBaseUtils {
 	 * @return
 	 * @throws SQLEXception
 	 */
-	public static Map<String, Object> queryForMap(String sql, Object...objects) throws SQLException {
+	public static Map<String, Object> queryForMap(String sql, Object...objects) {
 		Map<String, Object> result = new HashMap<String, Object>();
 		List<Map<String, Object> > list = queryForList(sql, objects);
 		if(list.size() != 1){
@@ -171,7 +179,7 @@ public class DataBaseUtils {
 	 * @throws NOSuchFileException
 	 * @throws SecurityException
 	 */
-	public static <T>T queryForBean(String sql, Class clazz, Object...objects) {
+	public static <T>T queryForBean(String sql, Class clazz, Object...objects){
 		T obj = null;
 		Map<String, Object> map = null;
 		Field field = null;
@@ -179,8 +187,6 @@ public class DataBaseUtils {
 			obj = (T) clazz.newInstance(); //创建一个Bean实例
 			map = queryForMap(sql, objects); //将结果集先放在一个map中
 		}catch (InstantiationException | IllegalAccessException e) {
-			e.printStackTrace();
-		}catch (SQLException e) {
 			e.printStackTrace();
 		}
 		
